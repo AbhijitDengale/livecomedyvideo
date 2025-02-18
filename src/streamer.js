@@ -4,9 +4,9 @@ import path from 'path';
 
 async function getRandomVideoFile() {
     const videoFiles = [];
-    // Generate numbers from 0 to 60 with leading zeros
+    // Generate numbers from 0 to 159 with leading zeros (3 digits)
     for (let i = 0; i <= 159; i++) {
-        videoFiles.push(`./assets/${i.toString().padStart(2, '0')}.mp4`);
+        videoFiles.push(`./assets/${i.toString().padStart(3, '0')}.mp4`);
     }
     
     // Randomly select a video file
@@ -19,7 +19,7 @@ async function getRandomVideoFile() {
         return selectedFile;
     } catch (error) {
         console.error(`Failed to access video file ${selectedFile}`);
-        throw new Error(`Video file ${selectedFile} not found. Please ensure all video files (00.mp4 through 60.mp4) are present in the assets directory.`);
+        throw new Error(`Video file ${selectedFile} not found. Please ensure all video files (000.mp4 through 159.mp4) are present in the assets directory.`);
     }
 }
 
